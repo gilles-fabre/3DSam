@@ -1,0 +1,38 @@
+3DSam is a Java 3D Physics Model Engine and Editor
+
+	All you need is Eclipse and a properly installed JDK.
+	Feel free to use, modify, extend, etc as long as you stick to the
+	LGPL licence.
+		
+Left to do (* == completed):
+
+*	Copy masses attributes
+*	Select connection set
+*	Name connection set
+*	Pick named collection set
+~	Hard springs (impossible; can't use a floodfill approach -as we do- for this)
+*	Zoom doesn't actually change the model size (must apply new size)	
+*	Model home follows model movement (make further rotations easier)
+*	Bring model back to world center when gone too far
+*	Rotate 45° around X, Y, Z buttons
+*	Move Toolbar checkboxes to the menu
+*	Undo/Redo ~ When a change is made, the remaining part of history is discarded
+*	Non modal "Model Parts" dialog
+*	Better Selection (bounding rect)
+*	Serialization/Deserialization used to forget springs connectionSets. 
+*	Fix selection manipulation (looks like the delta increases with the distance 
+		to the center of the screen)
+	 	rebuild if broken after reloading a model.
+*	Arrows to move up/down/left/right the selected sliders
+* 	Ctrl + select/drag add to the selection
+* 	Make Cone base more rigid  
+*   Weld selected masses
+*	Prevent window from closing ig project dirty and unsaved
+*	Use a different color for the spring/mass currently under the mouse
+*	Copy/Paste springs attributes
+*	Settings for x,y,z eye distance (GROUND_MIN <> GROUND_MAX)
+	Add align (center of) selected masses on X, on Y, on Z
+	Fix spring selection problem (probably has to do with the 'frontmost' stuff)
+	Help
+	About
+	
