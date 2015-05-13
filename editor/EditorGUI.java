@@ -187,6 +187,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -257,8 +258,8 @@ public class EditorGUI {
 	JMenuItem		deleteMenuItem;
 	JMenu			optionsMenu;
 	JToggleButton	constructButton;
-	JCheckBox		isoRenderingButton;
-	JCheckBox		centeredRenderingButton;
+	JCheckBoxMenuItem	isoRenderingButton;
+	JCheckBoxMenuItem	centeredRenderingButton;
 
 	ImpulsionRenderer impulsionRenderer;
 	
@@ -490,16 +491,16 @@ public class EditorGUI {
 		return springsControlPane;
 	}
 	
-	public JCheckBox getIsoRenderingButton() {
+	public JCheckBoxMenuItem getIsoRenderingButton() {
 		if (isoRenderingButton == null) 
-			isoRenderingButton = new JCheckBox();
+			isoRenderingButton = new JCheckBoxMenuItem();
 			
 		return isoRenderingButton;
 	}
 	
-	public JCheckBox getCenteredRenderingButton() {
+	public JCheckBoxMenuItem getCenteredRenderingButton() {
 		if (centeredRenderingButton == null) 
-			centeredRenderingButton = new JCheckBox();
+			centeredRenderingButton = new JCheckBoxMenuItem();
 		
 		return centeredRenderingButton;
 	}
@@ -1043,7 +1044,7 @@ public class EditorGUI {
 			//renderingMenu.setMnemonic(KeyEvent.VK_R);
 			
 			// add an 'ISO checkbox'.
-			JCheckBox isoButton = getIsoRenderingButton();
+			JCheckBoxMenuItem isoButton = getIsoRenderingButton();
 			isoButton.setSelected(Editor.getEditor().isIsoRendering());
 			isoButton.setText(Messages.getString("EditorGUI.73")); //$NON-NLS-1$
 			//isoButton.setMnemonic(KeyEvent.VK_I);
@@ -1052,7 +1053,7 @@ public class EditorGUI {
 			renderingMenu.add(isoButton);
 
 			// add a 'keep model centered' checkbox.
-			JCheckBox centeredButton = getCenteredRenderingButton();
+			JCheckBoxMenuItem centeredButton = getCenteredRenderingButton();
 			centeredButton.setSelected(Editor.getEditor().isCenteredRendering());
 			centeredButton.setText(Messages.getString("EditorGUI.75")); //$NON-NLS-1$
 			//centeredButton.setMnemonic(KeyEvent.VK_C);

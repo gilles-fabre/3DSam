@@ -269,14 +269,18 @@ public class EditorActions {
     public class IsoRenderingAction implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			Editor editor = Editor.getEditor();
-			editor.setIsoRendering(editor.getEditorGUI().isoRenderingButton.isSelected());
+			boolean iso = editor.getEditorGUI().isoRenderingButton.isSelected();
+			editor.setIsoRendering(iso);
+			editor.getEditorGUI().update();
 		}
 	}
 
     public class CenteredRenderingAction implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			Editor editor = Editor.getEditor();
-			editor.setCenteredRendering(editor.getEditorGUI().centeredRenderingButton.isSelected());
+			boolean centered = editor.getEditorGUI().centeredRenderingButton.isSelected();
+			editor.setCenteredRendering(centered);
+			editor.getEditorGUI().update();
 		}
 	}
 
