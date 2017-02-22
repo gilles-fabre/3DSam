@@ -395,7 +395,7 @@ public class EditorActions {
 
 			RigidBox box = new RigidBox();
 			
-			world.getModel().mergeConnections(box, false);
+			world.getModel().mergeConnections(box, true);
 			editor.clearSelection();
 			editor.select(box);
 			

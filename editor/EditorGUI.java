@@ -1023,7 +1023,7 @@ public class EditorGUI {
 			partsMenu.add(getNewConeMenuItem());
 			partsMenu.add(getNewTetrahedronMenuItem());
 			partsMenu.add(getNewPyramidMenuItem());
-			// partsMenu.add(getNewTorusMenuItem());
+			//partsMenu.add(getNewTorusMenuItem());
 			partsMenu.add(new JSeparator());
 			partsMenu.add(getNewModelPartMenuItem());
 			partsMenu.add(getManageModelPartsMenuItem());

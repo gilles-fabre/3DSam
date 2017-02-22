@@ -183,9 +183,7 @@ public class RigidBox extends Box {
 	private static final long serialVersionUID = -896662106850692663L;
 
 	public RigidBox() {
-		super();
-		
-		// additional springs that make the box 'rigid'
+		// use bars to make the box 'rigid'
 		Mass[] ftlbtr = {ftl, btr};
 		addConnections(ftlbtr, true);
 
