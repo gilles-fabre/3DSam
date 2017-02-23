@@ -26,12 +26,12 @@ Left to do (* == completed):
 *	Arrows to move up/down/left/right the selected sliders
 * 	Ctrl + select/drag add to the selection
 * 	Make Cone base more rigid  
-*   Weld selected masses
-*	Prevent window from closing ig project dirty and unsaved
+*   	Weld selected masses
+*	Prevent window from closing if project dirty and unsaved
 *	Use a different color for the spring/mass currently under the mouse
 *	Copy/Paste springs attributes
 *	Settings for x,y,z eye distance (GROUND_MIN <> GROUND_MAX)
-	Add align (center of) selected masses on X, on Y, on Z
+*	Add align (center of) selected masses on X, on Y, on Z
 	Fix spring selection problem (probably has to do with the 'frontmost' stuff)
 	Help
 	About

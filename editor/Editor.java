@@ -676,6 +676,55 @@ public class Editor implements Serializable {
 		model.changeHome(modelCenter);
 	}
 	
+	
+	/**
+	 * Align the selection.
+	 */
+	public void alignSelectionOnX() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setX(model.getHome().getX());
+		}
+		model.changeHome(modelCenter);
+	}
+	
+	public void alignSelectionOnY() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setY(model.getHome().getY());
+		}
+		model.changeHome(modelCenter);
+	}
+
+	public void alignSelectionOnZ() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setZ(model.getHome().getZ());
+		}
+		model.changeHome(modelCenter);
+	}
+
 	/**
 	 * Translate the selection.
 	 */

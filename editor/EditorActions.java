@@ -995,6 +995,39 @@ public class EditorActions {
 		}
 	}
 
+	public class AlignXActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			Editor editor = Editor.getEditor();
+			
+			editor.alignSelectionOnX();
+
+			editor.addHistoryState();
+			editor.getEditorGUI().update();
+		}
+	}
+
+	public class AlignYActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			Editor editor = Editor.getEditor();
+			
+			editor.alignSelectionOnY();
+
+			editor.addHistoryState();
+			editor.getEditorGUI().update();
+		}
+	}
+
+	public class AlignZActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			Editor editor = Editor.getEditor();
+			
+			editor.alignSelectionOnZ();
+
+			editor.addHistoryState();
+			editor.getEditorGUI().update();
+		}
+	}
+
 	public class ManipulateActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			Editor editor = Editor.getEditor();

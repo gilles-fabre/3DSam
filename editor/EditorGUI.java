@@ -598,6 +598,30 @@ public class EditorGUI {
 			actionbutton.setIcon(icon);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new RotateZActionListener());
+
+			actionbutton = new JButton();
+			//actionbutton.setText("Z Rotate");
+			actionbutton.setToolTipText(Messages.getString("EditorGUI.101")); //$NON-NLS-1$
+			icon = createImageIcon("/resources/alignX_40x40.jpeg");
+			actionbutton.setIcon(icon);
+			toolbar.add(actionbutton);
+			actionbutton.addActionListener(actions.new AlignXActionListener());
+
+			actionbutton = new JButton();
+			//actionbutton.setText("Z Rotate");
+			actionbutton.setToolTipText(Messages.getString("EditorGUI.102")); //$NON-NLS-1$
+			icon = createImageIcon("/resources/alignY_40x40.jpeg");
+			actionbutton.setIcon(icon);
+			toolbar.add(actionbutton);
+			actionbutton.addActionListener(actions.new AlignYActionListener());
+
+			actionbutton = new JButton();
+			//actionbutton.setText("Z Rotate");
+			actionbutton.setToolTipText(Messages.getString("EditorGUI.103")); //$NON-NLS-1$
+			icon = createImageIcon("/resources/alignZ_40x40.jpeg");
+			actionbutton.setIcon(icon);
+			toolbar.add(actionbutton);
+			actionbutton.addActionListener(actions.new AlignYActionListener());
 		}
 		
 		return toolbar;
