@@ -521,7 +521,6 @@ public class EditorGUI {
 			ButtonGroup group = new ButtonGroup();
 			
 			JToggleButton button = getConstructButton();
-			//button.setText("Construct");
 			button.setToolTipText(Messages.getString("EditorGUI.10")); //$NON-NLS-1$
 			ImageIcon icon = createImageIcon("/resources/construct_40x40.jpeg");
 			button.setIcon(icon);
@@ -531,7 +530,6 @@ public class EditorGUI {
 			button.addActionListener(actions.new ConstructActionListener());
 			
 			button = new JToggleButton();
-			//button.setText("Select");
 			button.setToolTipText(Messages.getString("EditorGUI.12")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/select_40x40.jpeg");
 			button.setIcon(icon);
@@ -540,7 +538,6 @@ public class EditorGUI {
 			button.addActionListener(actions.new SelectActionListener());
 
 			button = new JToggleButton();
-			//button.setText("Manipulate");
 			button.setToolTipText(Messages.getString("EditorGUI.14")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/manipulate_40x40.jpeg");
 			button.setIcon(icon);
@@ -549,7 +546,6 @@ public class EditorGUI {
 			button.addActionListener(actions.new ManipulateActionListener());
 
 			button = new JToggleButton();
-			//button.setText("Run");
 			button.setToolTipText(Messages.getString("EditorGUI.16")); //$NON-NLS-1$
 			button.setIcon(createImageIcon("/resources/run_40x40.jpeg"));
 			button.addActionListener(actions.new RunActionListener());
@@ -557,7 +553,6 @@ public class EditorGUI {
 			toolbar.add(button);
 		
 			button = new JToggleButton();
-			//button.setText("Pause");
 			button.setToolTipText(Messages.getString("EditorGUI.18")); //$NON-NLS-1$
 			button.setIcon(createImageIcon("/resources/pause_40x40.jpeg"));
 			button.addActionListener(actions.new PauseActionListener());
@@ -565,7 +560,6 @@ public class EditorGUI {
 			toolbar.add(button);
 			
 			button = new JToggleButton();
-			//button.setText("Rotate/Zoom");
 			button.setToolTipText(Messages.getString("EditorGUI.20")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/rotate_40x40.jpeg");
 			button.setIcon(icon);
@@ -576,7 +570,6 @@ public class EditorGUI {
 			toolbar.add(new JSeparator());
 			
 			JButton actionbutton = new JButton();
-			//actionbutton.setText("X Rotate");
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.22")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/rotateX_40x40.jpeg");
 			actionbutton.setIcon(icon);
@@ -584,7 +577,6 @@ public class EditorGUI {
 			actionbutton.addActionListener(actions.new RotateXActionListener());
 
 			actionbutton = new JButton();
-			//actionbutton.setText("Y Rotate");
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.24")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/rotateY_40x40.jpeg");
 			actionbutton.setIcon(icon);
@@ -592,7 +584,6 @@ public class EditorGUI {
 			actionbutton.addActionListener(actions.new RotateYActionListener());
 		
 			actionbutton = new JButton();
-			//actionbutton.setText("Z Rotate");
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.26")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/rotateZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
@@ -600,7 +591,6 @@ public class EditorGUI {
 			actionbutton.addActionListener(actions.new RotateZActionListener());
 
 			actionbutton = new JButton();
-			//actionbutton.setText("Z Rotate");
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.101")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/alignX_40x40.jpeg");
 			actionbutton.setIcon(icon);
@@ -608,7 +598,6 @@ public class EditorGUI {
 			actionbutton.addActionListener(actions.new AlignXActionListener());
 
 			actionbutton = new JButton();
-			//actionbutton.setText("Z Rotate");
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.102")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/alignY_40x40.jpeg");
 			actionbutton.setIcon(icon);
@@ -616,12 +605,32 @@ public class EditorGUI {
 			actionbutton.addActionListener(actions.new AlignYActionListener());
 
 			actionbutton = new JButton();
-			//actionbutton.setText("Z Rotate");
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.103")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/alignZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new AlignYActionListener());
+
+			actionbutton = new JButton();
+			actionbutton.setToolTipText(Messages.getString("EditorGUI.104")); //$NON-NLS-1$
+			icon = createImageIcon("/resources/distributeX_40x40.jpeg");
+			actionbutton.setIcon(icon);
+			toolbar.add(actionbutton);
+			actionbutton.addActionListener(actions.new DistributeXActionListener());
+
+			actionbutton = new JButton();
+			actionbutton.setToolTipText(Messages.getString("EditorGUI.105")); //$NON-NLS-1$
+			icon = createImageIcon("/resources/distributeY_40x40.jpeg");
+			actionbutton.setIcon(icon);
+			toolbar.add(actionbutton);
+			actionbutton.addActionListener(actions.new DistributeYActionListener());
+
+			actionbutton = new JButton();
+			actionbutton.setToolTipText(Messages.getString("EditorGUI.106")); //$NON-NLS-1$
+			icon = createImageIcon("/resources/distributeZ_40x40.jpeg");
+			actionbutton.setIcon(icon);
+			toolbar.add(actionbutton);
+			actionbutton.addActionListener(actions.new DistributeYActionListener());
 		}
 		
 		return toolbar;

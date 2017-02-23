@@ -482,6 +482,10 @@ public class Editor implements Serializable {
     	return colors[color.ordinal()];
     }
 
+    public boolean isSelection() {
+    	return !getSelectedMasses().isEmpty(); 
+    }
+
     public boolean isSelected(Mass mass) {
     	return getSelectedMasses().contains(mass); 
     }
@@ -659,6 +663,63 @@ public class Editor implements Serializable {
 	}
 	
 	/**
+	 * Align the selection.
+	 */
+	public void alignSelectionOnX() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Dot selectionCenter = getSelectionCenter();
+			
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setX(selectionCenter.getX());
+		}
+
+		model.changeHome(modelCenter);
+	}
+	
+	public void alignSelectionOnY() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Dot selectionCenter = getSelectionCenter();
+			
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setY(selectionCenter.getY());
+		}
+
+		model.changeHome(modelCenter);
+	}
+
+	public void alignSelectionOnZ() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Dot selectionCenter = getSelectionCenter();
+			
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setZ(selectionCenter.getZ());
+		}
+
+		model.changeHome(modelCenter);
+	}
+
+	/**
 	 * Rotate the selection.
 	 */
 	public void rotateSelection(int xAngle, int yAngle, int zAngle) {
@@ -673,58 +734,10 @@ public class Editor implements Serializable {
 			Mass m = (Mass)i.next();
 			m.rotate(xAngle, yAngle, zAngle);
 		}
+		
 		model.changeHome(modelCenter);
 	}
 	
-	
-	/**
-	 * Align the selection.
-	 */
-	public void alignSelectionOnX() {
-		Model model = world.getModel();
-		
-		// actions on the selection are relative to the selection center
-		Dot modelCenter = model.getHome();
-		model.changeHome(getSelectionCenter());
-			
-		Iterator<Mass> i = getSelectedMasses().iterator();
-		while (i.hasNext()) {
-			Mass m = (Mass)i.next();
-			m.setX(model.getHome().getX());
-		}
-		model.changeHome(modelCenter);
-	}
-	
-	public void alignSelectionOnY() {
-		Model model = world.getModel();
-		
-		// actions on the selection are relative to the selection center
-		Dot modelCenter = model.getHome();
-		model.changeHome(getSelectionCenter());
-			
-		Iterator<Mass> i = getSelectedMasses().iterator();
-		while (i.hasNext()) {
-			Mass m = (Mass)i.next();
-			m.setY(model.getHome().getY());
-		}
-		model.changeHome(modelCenter);
-	}
-
-	public void alignSelectionOnZ() {
-		Model model = world.getModel();
-		
-		// actions on the selection are relative to the selection center
-		Dot modelCenter = model.getHome();
-		model.changeHome(getSelectionCenter());
-			
-		Iterator<Mass> i = getSelectedMasses().iterator();
-		while (i.hasNext()) {
-			Mass m = (Mass)i.next();
-			m.setZ(model.getHome().getZ());
-		}
-		model.changeHome(modelCenter);
-	}
-
 	/**
 	 * Translate the selection.
 	 */
@@ -734,12 +747,13 @@ public class Editor implements Serializable {
 		// actions on the selection are relative to the selection center
 		Dot modelCenter = model.getHome();
 		model.changeHome(getSelectionCenter());
-			
+
 		Iterator<Mass> i = getSelectedMasses().iterator();
 		while (i.hasNext()) {
 			Mass m = (Mass)i.next();
 			m.translate(xOffset, yOffset, zOffset);
 		}
+		
 		model.changeHome(modelCenter);
 	}
 
@@ -758,6 +772,88 @@ public class Editor implements Serializable {
 			Mass m = (Mass)i.next();
 			m.scale(xRatio, yRatio, zRatio);
 		}
+		
+		model.changeHome(modelCenter);
+	}
+
+	/**
+	 * Distribute the selection.
+	 */
+	public void distributeSelectionOnX() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Dot ful = new Dot();
+		Dot bbr = new Dot();
+		getSelectionBoundingBox(ful, bbr);
+		double width = bbr.getX() - ful.getX();		
+
+		getSelectedMasses().sort(Dot.CompareOnX);
+		
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		double delta = width / (getSelectedMasses().size() - 1);
+		double offset = ful.getX(); 
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setX(offset);
+			offset += delta;
+		}
+
+		model.changeHome(modelCenter);
+	}
+
+	public void distributeSelectionOnY() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Dot ful = new Dot();
+		Dot bbr = new Dot();
+		getSelectionBoundingBox(ful, bbr);
+		double height = bbr.getY() - ful.getY();		
+
+		getSelectedMasses().sort(Dot.CompareOnY);
+
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		double delta = height / (getSelectedMasses().size() - 1);
+		double offset = ful.getY(); 
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setY(offset);
+			offset += delta;
+		}
+
+		model.changeHome(modelCenter);
+	}
+
+	public void distributeSelectionOnZ() {
+		Model model = world.getModel();
+		
+		// actions on the selection are relative to the selection center
+		Dot modelCenter = model.getHome();
+		model.changeHome(getSelectionCenter());
+			
+		Dot ful = new Dot();
+		Dot bbr = new Dot();
+		getSelectionBoundingBox(ful, bbr);
+		double depth = bbr.getZ() - ful.getZ();		
+
+		getSelectedMasses().sort(Dot.CompareOnZ);
+
+		Iterator<Mass> i = getSelectedMasses().iterator();
+		double delta = depth / (getSelectedMasses().size() - 1);
+		double offset = ful.getZ(); 
+		while (i.hasNext()) {
+			Mass m = (Mass)i.next();
+			m.setZ(offset);
+			offset += delta;
+		}
+
 		model.changeHome(modelCenter);
 	}
 }

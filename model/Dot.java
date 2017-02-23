@@ -178,6 +178,8 @@ Initial version by gilles fabre (gilles.fabre.perso@free.fr), March 2015
  */
 package model;
 
+import java.util.Comparator;
+
 import matrix.Matrix;
 
 public class Dot extends Matrix {
@@ -400,4 +402,37 @@ public class Dot extends Matrix {
 		s3 *= s3;
 		return Math.sqrt(s1 + s2 + s3);
 	}
+	
+	public static Comparator<Dot> CompareOnX = new Comparator<Dot>() {
+		public int compare(Dot dot1, Dot dot2) {
+			if (dot1.getX() == dot2.getX())
+				return 0;
+			if (dot1.getX() < dot2.getX())
+				return -1;
+			else
+				return 1;
+		}
+	};
+
+	public static Comparator<Dot> CompareOnY = new Comparator<Dot>() {
+		public int compare(Dot dot1, Dot dot2) {
+			if (dot1.getY() == dot2.getY())
+				return 0;
+			if (dot1.getY() < dot2.getY())
+				return -1;
+			else
+				return 1;
+		}
+	};
+
+	public static Comparator<Dot> CompareOnZ = new Comparator<Dot>() {
+		public int compare(Dot dot1, Dot dot2) {
+			if (dot1.getZ() == dot2.getZ())
+				return 0;
+			if (dot1.getZ() < dot2.getZ())
+				return -1;
+			else
+				return 1;
+		}
+	};
 }

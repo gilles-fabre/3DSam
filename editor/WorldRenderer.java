@@ -890,7 +890,10 @@ public class WorldRenderer extends JPanel implements MouseListener, MouseMotionL
 		// draw model bounding box
 		Dot frontUpperLeft = new Dot();
 		Dot backBottomRight = new Dot();
-		model.getBoundingBox(frontUpperLeft, backBottomRight);
+		if (editor.isSelection())
+			editor.getSelectionBoundingBox(frontUpperLeft, backBottomRight);
+		else
+			model.getBoundingBox(frontUpperLeft, backBottomRight);
 		Box bbox = new Box(frontUpperLeft, backBottomRight);
 		bbox.setHome(model.getHome());
 		bbox.setColor(editor.getColor(Editor.Colors.MODEL_BOX_COLOR));

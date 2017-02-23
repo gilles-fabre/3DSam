@@ -1028,6 +1028,39 @@ public class EditorActions {
 		}
 	}
 
+	public class DistributeXActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			Editor editor = Editor.getEditor();
+			
+			editor.distributeSelectionOnX();
+
+			editor.addHistoryState();
+			editor.getEditorGUI().update();
+		}
+	}
+
+	public class DistributeYActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			Editor editor = Editor.getEditor();
+			
+			editor.distributeSelectionOnY();
+
+			editor.addHistoryState();
+			editor.getEditorGUI().update();
+		}
+	}
+
+	public class DistributeZActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			Editor editor = Editor.getEditor();
+			
+			editor.distributeSelectionOnZ();
+
+			editor.addHistoryState();
+			editor.getEditorGUI().update();
+		}
+	}
+
 	public class ManipulateActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			Editor editor = Editor.getEditor();
