@@ -419,9 +419,9 @@ public class Dot extends Matrix {
 			if (dot1.getY() == dot2.getY())
 				return 0;
 			if (dot1.getY() < dot2.getY())
-				return -1;
-			else
 				return 1;
+			else
+				return -1;
 		}
 	};
 
@@ -430,9 +430,9 @@ public class Dot extends Matrix {
 			if (dot1.getZ() == dot2.getZ())
 				return 0;
 			if (dot1.getZ() < dot2.getZ())
-				return -1;
-			else
 				return 1;
+			else
+				return -1;
 		}
 	};
 }
