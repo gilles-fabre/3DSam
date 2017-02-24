@@ -573,6 +573,7 @@ public class EditorGUI {
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.22")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/rotateX_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new RotateXActionListener());
 
@@ -580,6 +581,7 @@ public class EditorGUI {
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.24")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/rotateY_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new RotateYActionListener());
 		
@@ -587,13 +589,17 @@ public class EditorGUI {
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.26")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/rotateZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new RotateZActionListener());
 
+			toolbar.add(new JSeparator());
+			
 			actionbutton = new JButton();
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.101")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/alignX_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new AlignXActionListener());
 
@@ -601,6 +607,7 @@ public class EditorGUI {
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.102")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/alignY_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new AlignYActionListener());
 
@@ -608,13 +615,17 @@ public class EditorGUI {
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.103")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/alignZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new AlignYActionListener());
 
+			toolbar.add(new JSeparator());
+			
 			actionbutton = new JButton();
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.104")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/distributeX_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new DistributeXActionListener());
 
@@ -622,6 +633,7 @@ public class EditorGUI {
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.105")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/distributeY_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new DistributeYActionListener());
 
@@ -629,6 +641,7 @@ public class EditorGUI {
 			actionbutton.setToolTipText(Messages.getString("EditorGUI.106")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/distributeZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
+			actionbutton.setFocusable(false);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new DistributeYActionListener());
 		}

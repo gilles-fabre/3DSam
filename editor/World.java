@@ -204,7 +204,8 @@ public class World implements Serializable {
     	new ObjectStreamField("stiffness", double.class),
     	new ObjectStreamField("impulsion", double.class),
     	new ObjectStreamField("home", Home.class),
-    	new ObjectStreamField("model", Model.class)
+    	new ObjectStreamField("model", Model.class),
+    	new ObjectStreamField("dirty", boolean.class)
     };
 
 	// mix, max, default parameters for gravity, stiffness, friction, impulsion
