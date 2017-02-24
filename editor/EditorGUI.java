@@ -182,6 +182,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
+import java.util.Vector;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -257,8 +258,9 @@ public class EditorGUI {
 	JMenuItem		deleteMenuItem;
 	JMenu			optionsMenu;
 	JToggleButton	constructButton;
-	JCheckBoxMenuItem	isoRenderingButton;
-	JCheckBoxMenuItem	centeredRenderingButton;
+	JCheckBoxMenuItem	  isoRenderingButton;
+	JCheckBoxMenuItem	  centeredRenderingButton;
+	Vector<JComponent> selectionButtons = new Vector();		
 
 	ImpulsionRenderer impulsionRenderer;
 	
@@ -311,6 +313,13 @@ public class EditorGUI {
 		}
 	}
 
+	/** Returns the list of buttons which shall be enabled only when a
+	 * selection is active
+	 */
+	public Vector<JComponent> getSelectionButtons() {
+		return selectionButtons;
+	}
+	
 	/** Returns an ImageIcon, or null if the path was invalid. */
     public ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = getClass().getResource(path);
@@ -541,6 +550,7 @@ public class EditorGUI {
 			button.setToolTipText(Messages.getString("EditorGUI.14")); //$NON-NLS-1$
 			icon = createImageIcon("/resources/manipulate_40x40.jpeg");
 			button.setIcon(icon);
+			selectionButtons.add(button);
 			group.add(button);
 			toolbar.add(button);
 			button.addActionListener(actions.new ManipulateActionListener());
@@ -574,6 +584,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/rotateX_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new RotateXActionListener());
 
@@ -582,6 +593,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/rotateY_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new RotateYActionListener());
 		
@@ -590,6 +602,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/rotateZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new RotateZActionListener());
 
@@ -600,6 +613,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/alignX_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new AlignXActionListener());
 
@@ -608,6 +622,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/alignY_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new AlignYActionListener());
 
@@ -616,6 +631,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/alignZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new AlignYActionListener());
 
@@ -626,6 +642,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/distributeX_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new DistributeXActionListener());
 
@@ -634,6 +651,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/distributeY_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new DistributeYActionListener());
 
@@ -642,6 +660,7 @@ public class EditorGUI {
 			icon = createImageIcon("/resources/distributeZ_40x40.jpeg");
 			actionbutton.setIcon(icon);
 			actionbutton.setFocusable(false);
+			selectionButtons.add(actionbutton);
 			toolbar.add(actionbutton);
 			actionbutton.addActionListener(actions.new DistributeYActionListener());
 		}

@@ -35,6 +35,7 @@ Left to do (* == completed):
 *	Add distribute selected masses on X, on Y, on Z
 * 	Add show selection bounding box if a selection exists
 *       Clear selection upon undo/load/new
+*       Selection related buttons shall be enabled only when a selection exists
 	Fix spring selection problem (probably has to do with the 'frontmost' stuff)
 	Help
 	About

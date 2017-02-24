@@ -187,16 +187,17 @@ import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Vector;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import editor.World.Animator;
 import model.Dot;
 import model.Mass;
 import model.Model;
 import model.Spring;
-import editor.World.Animator;
 
 
 public class Editor implements Serializable {
@@ -483,7 +484,13 @@ public class Editor implements Serializable {
     }
 
     public boolean isSelection() {
-    	return !getSelectedMasses().isEmpty(); 
+    	boolean isSelection = !getSelectedMasses().isEmpty();
+
+    	Iterator<JComponent> i = getEditorGUI().getSelectionButtons().iterator();
+    	while (i.hasNext()) 
+    		i.next().setEnabled(isSelection);
+    
+    	return isSelection;
     }
 
     public boolean isSelected(Mass mass) {
@@ -520,7 +527,7 @@ public class Editor implements Serializable {
     }
 
     public void clearSelection() {
-		getSelectedMasses().clear(); 
+		getSelectedMasses().clear();
     }
     
     public void select(Model m) {
