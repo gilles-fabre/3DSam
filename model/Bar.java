@@ -172,6 +172,7 @@ package model;
 
 import java.io.Serializable;
 
+import editor.Editor;
 import editor.World;
 
 public class Bar extends Spring  implements Serializable {
@@ -195,16 +196,32 @@ public class Bar extends Spring  implements Serializable {
 	}
 	
 	/**
-	 * Bars don't compute a reaction based on their change in size (since the latter
-	 * doesn't change), they just propagate and balance the velocity changes from one side
-	 * to the other one.
+	 * Bars don't react, except when dragged in RUN/PAUSE mode
 	 */
-	// #### fixme: velocity is not set when this is called, and the bar size has changed!
  	public void computeReaction() {
-		// no need to compute anything if both masses are fixed
-		if (origin.isFixed() && destination.isFixed())
-			return;
-		
+ 		origin.add(origin.getVelocity());
+ 		destination.add(destination.getVelocity());
+	}
+	
+	public void applyReaction() {
+		Dot    	ground = new Dot(0, World.GROUND_ALTITUDE, 0);
+
+		// apply gravity when in RUN_MODE only.
+		Editor editor = Editor.getEditor();
+		if (editor.getMode() == Editor.Modes.RUN_MODE) {
+			// compute gravity direction vector
+			Velocity 	gravity = new Velocity(0, 1, 0);
+											   
+			// apply gravity force
+			gravity.mul(Editor.getEditor().getWorld().getGravity());
+	
+			// apply gravity and velocity to the non fixed masses
+			origin.add(gravity);
+			destination.add(gravity);
+		}
+
+		// now reset the mass to its proper position based on the initial
+		// size of the bar, and the origin/destination vector.
 		double 		size = destination.distance(origin);
 		Velocity 	reaction = new Velocity();
 		
@@ -219,46 +236,40 @@ public class Bar extends Spring  implements Serializable {
 		// difference to the resting length
 		size -= initialSize;
 		
-		// compute attraction/repulsion force based on displacement
-
 		// Velocity change to apply to masses due to the attraction amplitude and direction
 		reaction.mul(size);
-		
-		// friction slows reaction down
-		reaction.mul(World.BAR_FRICTION);
 		
 		// half of the force applied on each side
 		reaction.mul(0.5);
 		
-		// #### try to prevent the model from getting into resonance
-		Velocity noReaction = new Velocity(0, 0, 0);
-		if (reaction.distance(noReaction) > MAX_REACTION) {
-			double x = reaction.getX(), 
-				   y = reaction.getY(), 
-				   z = reaction.getZ();
-			
-			if (x < -MAX_AXIS_REACTION || x > MAX_AXIS_REACTION)
-				x *= MAX_AXIS_REACTION;
-			if (y < -MAX_AXIS_REACTION || y > MAX_AXIS_REACTION)
-				y *= MAX_AXIS_REACTION;
-			if (z < -MAX_AXIS_REACTION || z > MAX_AXIS_REACTION)
-				z *= MAX_AXIS_REACTION;
-
-			reaction = new Velocity(x, y, z);
-		}
-		
-		// apply reaction to masses' velocity
+		// reset mass position
 		if (!origin.isFixed()) {
 			if (destination.isFixed())
 				reaction.mul(2.0); // reaction is twice more important
-			origin.getVelocity().add(reaction);
+			origin.add(reaction);
 		}
 		
 		if (!destination.isFixed()) { 
 			if (origin.isFixed())
 				reaction.mul(2.0); // reaction is twice more important
-			destination.getVelocity().sub(reaction);
+			destination.sub(reaction);
 		}
+		
+		// do not go below the ground
+		if (origin.getY() > ground.getY()) { 
+			double delta = ground.getY() - origin.getY(); 
+			origin.setY(ground.getY());
+			destination.setY(destination.getY() + delta);
+		}
+		if (destination.getY() > ground.getY()) { 
+			double delta = ground.getY() - destination.getY(); 
+			destination.setY(ground.getY());
+			origin.setY(origin.getY() + delta);
+		}
+		
+		// energy loss
+		origin.getVelocity().mul(1.0 - World.ENERGY_LOSS_FACTOR);
+		destination.getVelocity().mul(1.0 - World.ENERGY_LOSS_FACTOR);
 	}
 	
 	/**

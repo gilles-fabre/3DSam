@@ -289,7 +289,7 @@ public class Spring implements Serializable {
 	 * each mass and to check ground collision. Once the reaction have been applied, we reduce the mass velocities
 	 * by an ENERGY_LOSS constant.
 	 */
-	private void applyReaction(Mass mass, Velocity gravity, Dot ground) {
+	protected void applyReaction(Mass mass, Velocity gravity, Dot ground) {
 		if (mass.isFixed()) 
 			return;
 		

@@ -341,6 +341,7 @@ public class EditorActions {
 			world.getModel().setName(newWorldName);
 			// editor.getWorld().fixSprings();
 			
+			editor.clearSelection();
 			editor.clearHistory();
 			world.setDirty(false);
 			editor.addHistoryState();
@@ -365,6 +366,7 @@ public class EditorActions {
 			editor.getEditorGUI().getConstructButton().doClick();
 			world.setModel(new Model(editor.getColor(Editor.Colors.MODEL_COLOR)));
 
+			editor.clearSelection();
 			editor.clearHistory();
 			editor.getWorld().setDirty(false);
 			editor.addHistoryState();
@@ -671,6 +673,7 @@ public class EditorActions {
 			Editor editor = Editor.getEditor();
 
 			editor.undo();
+			editor.clearSelection();
 			editor.getEditorGUI().update();
 		}
 	}

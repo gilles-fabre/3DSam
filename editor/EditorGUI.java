@@ -663,7 +663,6 @@ public class EditorGUI {
 		if (worldMenu == null) {
 			worldMenu = new JMenu();
 			worldMenu.setText(Messages.getString("EditorGUI.28")); //$NON-NLS-1$
-			//worldMenu.setMnemonic(KeyEvent.VK_W);
 			worldMenu.add(getNewMenuItem());
 			worldMenu.add(getLoadMenuItem());
 			worldMenu.add(getSaveMenuItem());
@@ -683,7 +682,6 @@ public class EditorGUI {
 		if (colorMenu == null) {
 			colorMenu = new JMenu();
 			colorMenu.setText(Messages.getString("EditorGUI.29")); //$NON-NLS-1$
-			//colorMenu.setMnemonic(KeyEvent.VK_C);
 			colorMenu.add(getModelColorMenuItem());
 			colorMenu.add(getGroundColorMenuItem());
 			colorMenu.add(getTextColorMenuItem());
@@ -703,7 +701,6 @@ public class EditorGUI {
 		if (modelColorMenuItem == null) {
 			modelColorMenuItem = new JMenuItem();
 			modelColorMenuItem.setText(Messages.getString("EditorGUI.30")); //$NON-NLS-1$
-			//modelColorMenuItem.setMnemonic(KeyEvent.VK_M);
 			modelColorMenuItem.setToolTipText(Messages.getString("EditorGUI.31")); //$NON-NLS-1$
 			modelColorMenuItem.addActionListener(Editor.getEditor().getEditorActions().new ModelColorAction());
 		}
@@ -719,7 +716,6 @@ public class EditorGUI {
 		if (groundColorMenuItem == null) {
 			groundColorMenuItem = new JMenuItem();
 			groundColorMenuItem.setText(Messages.getString("EditorGUI.32")); //$NON-NLS-1$
-			//groundColorMenuItem.setMnemonic(KeyEvent.VK_G);
 			groundColorMenuItem.setToolTipText(Messages.getString("EditorGUI.33")); //$NON-NLS-1$
 			groundColorMenuItem.addActionListener(Editor.getEditor().getEditorActions().new GroundColorAction());
 		}
@@ -735,7 +731,6 @@ public class EditorGUI {
 		if (textColorMenuItem == null) {
 			textColorMenuItem = new JMenuItem();
 			textColorMenuItem.setText(Messages.getString("EditorGUI.34")); //$NON-NLS-1$
-			//textColorMenuItem.setMnemonic(KeyEvent.VK_T);
 			textColorMenuItem.setToolTipText(Messages.getString("EditorGUI.35")); //$NON-NLS-1$
 			textColorMenuItem.addActionListener(Editor.getEditor().getEditorActions().new TextColorAction());
 		}
@@ -751,7 +746,6 @@ public class EditorGUI {
 		if (overflewColorMenuItem == null) {
 			overflewColorMenuItem = new JMenuItem();
 			overflewColorMenuItem.setText(Messages.getString("EditorGUI.36")); //$NON-NLS-1$
-			//overflewColorMenuItem.setMnemonic(KeyEvent.VK_O);
 			overflewColorMenuItem.setToolTipText(Messages.getString("EditorGUI.37")); //$NON-NLS-1$
 			overflewColorMenuItem.addActionListener(Editor.getEditor().getEditorActions().new OverflewColorAction());
 		}
@@ -767,7 +761,6 @@ public class EditorGUI {
 		if (selectionColorMenuItem == null) {
 			selectionColorMenuItem = new JMenuItem();
 			selectionColorMenuItem.setText(Messages.getString("EditorGUI.38")); //$NON-NLS-1$
-			//selectionColorMenuItem.setMnemonic(KeyEvent.VK_S);
 			selectionColorMenuItem.setToolTipText(Messages.getString("EditorGUI.39")); //$NON-NLS-1$
 			selectionColorMenuItem.addActionListener(Editor.getEditor().getEditorActions().new SelectionColorAction());
 		}
@@ -783,7 +776,6 @@ public class EditorGUI {
 		if (modelBoxColorMenuItem == null) {
 			modelBoxColorMenuItem = new JMenuItem();
 			modelBoxColorMenuItem.setText(Messages.getString("EditorGUI.40")); //$NON-NLS-1$
-			//modelBoxColorMenuItem.setMnemonic(KeyEvent.VK_B);
 			modelBoxColorMenuItem.setToolTipText(Messages.getString("EditorGUI.41")); //$NON-NLS-1$
 			modelBoxColorMenuItem.addActionListener(Editor.getEditor().getEditorActions().new ModelBoxColorAction());
 		}
@@ -799,7 +791,6 @@ public class EditorGUI {
 		if (loadMenuItem == null) {
 			loadMenuItem = new JMenuItem();
 			loadMenuItem.setText(Messages.getString("EditorGUI.42")); //$NON-NLS-1$
-			//loadMenuItem.setMnemonic(KeyEvent.VK_L);
 			loadMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L,InputEvent.CTRL_MASK));
 			loadMenuItem.setToolTipText(Messages.getString("EditorGUI.43")); //$NON-NLS-1$
 			loadMenuItem.addActionListener(Editor.getEditor().getEditorActions().new LoadAction());
@@ -816,7 +807,6 @@ public class EditorGUI {
 		if (saveAsMenuItem == null) {
 			saveAsMenuItem = new JMenuItem();
 			saveAsMenuItem.setText(Messages.getString("EditorGUI.44")); //$NON-NLS-1$
-			//saveAsMenuItem.setMnemonic(KeyEvent.VK_A);
 			saveAsMenuItem.setToolTipText(Messages.getString("EditorGUI.45")); //$NON-NLS-1$
 			saveAsMenuItem.addActionListener(Editor.getEditor().getEditorActions().new SaveAsAction());
 		}
@@ -832,7 +822,6 @@ public class EditorGUI {
 		if (saveMenuItem == null) {
 			saveMenuItem = new JMenuItem();
 			saveMenuItem.setText(Messages.getString("EditorGUI.46")); //$NON-NLS-1$
-			//saveMenuItem.setMnemonic(KeyEvent.VK_S);
 			saveMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,InputEvent.CTRL_MASK));
 			saveMenuItem.setToolTipText(Messages.getString("EditorGUI.47")); //$NON-NLS-1$
 			saveMenuItem.addActionListener(Editor.getEditor().getEditorActions().new SaveAction());
@@ -849,7 +838,6 @@ public class EditorGUI {
 		if (exitMenuItem == null) {
 			exitMenuItem = new JMenuItem();
 			exitMenuItem.setText(Messages.getString("EditorGUI.48")); //$NON-NLS-1$
-			//exitMenuItem.setMnemonic(KeyEvent.VK_X);
 			exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,InputEvent.CTRL_MASK));
 			exitMenuItem.setToolTipText(Messages.getString("EditorGUI.49")); //$NON-NLS-1$
 			exitMenuItem.addActionListener(Editor.getEditor().getEditorActions().new ExitAction());
@@ -866,7 +854,6 @@ public class EditorGUI {
 		if (newMenuItem == null) {
 			newMenuItem = new JMenuItem();
 			newMenuItem.setText(Messages.getString("EditorGUI.50")); //$NON-NLS-1$
-			//newMenuItem.setMnemonic(KeyEvent.VK_N);
 			newMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,InputEvent.CTRL_MASK));
 			newMenuItem.setToolTipText(Messages.getString("EditorGUI.51")); //$NON-NLS-1$
 			newMenuItem.addActionListener(Editor.getEditor().getEditorActions().new NewAction());
@@ -1021,7 +1008,6 @@ public class EditorGUI {
 		if (editMenu == null) {
 			editMenu = new JMenu();
 			editMenu.setText(Messages.getString("EditorGUI.70")); //$NON-NLS-1$
-			//editMenu.setMnemonic(KeyEvent.VK_E);
 			editMenu.add(getUndoMenuItem());
 			editMenu.add(getRedoMenuItem());
 			editMenu.add(new JSeparator());
@@ -1048,7 +1034,6 @@ public class EditorGUI {
 		if (partsMenu == null) {
 			partsMenu = new JMenu();
 			partsMenu.setText(Messages.getString("EditorGUI.71")); //$NON-NLS-1$
-			//partsMenu.setMnemonic(KeyEvent.VK_P);
 			partsMenu.add(getNewBoxMenuItem());
 			partsMenu.add(getNewRigidBoxMenuItem());
 			//partsMenu.add(getNewWheelMenuItem());
@@ -1073,13 +1058,11 @@ public class EditorGUI {
 		if (renderingMenu == null) {
 			renderingMenu = new JMenu();
 			renderingMenu.setText(Messages.getString("EditorGUI.72")); //$NON-NLS-1$
-			//renderingMenu.setMnemonic(KeyEvent.VK_R);
 			
 			// add an 'ISO checkbox'.
 			JCheckBoxMenuItem isoButton = getIsoRenderingButton();
 			isoButton.setSelected(Editor.getEditor().isIsoRendering());
 			isoButton.setText(Messages.getString("EditorGUI.73")); //$NON-NLS-1$
-			//isoButton.setMnemonic(KeyEvent.VK_I);
 			isoButton.setToolTipText(Messages.getString("EditorGUI.74")); //$NON-NLS-1$
 			isoButton.addActionListener(Editor.getEditor().getEditorActions().new IsoRenderingAction());
 			renderingMenu.add(isoButton);
@@ -1088,7 +1071,6 @@ public class EditorGUI {
 			JCheckBoxMenuItem centeredButton = getCenteredRenderingButton();
 			centeredButton.setSelected(Editor.getEditor().isCenteredRendering());
 			centeredButton.setText(Messages.getString("EditorGUI.75")); //$NON-NLS-1$
-			//centeredButton.setMnemonic(KeyEvent.VK_C);
 			centeredButton.setToolTipText(Messages.getString("EditorGUI.76")); //$NON-NLS-1$
 			centeredButton.addActionListener(Editor.getEditor().getEditorActions().new CenteredRenderingAction());
 			renderingMenu.add(centeredButton);
@@ -1121,7 +1103,6 @@ public class EditorGUI {
 		if (copyMenuItem == null) {
 			copyMenuItem = new JMenuItem();
 			copyMenuItem.setText(Messages.getString("EditorGUI.79")); //$NON-NLS-1$
-			//copyMenuItem.setMnemonic(KeyEvent.VK_C);
 			copyMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,InputEvent.CTRL_MASK));
 			copyMenuItem.setToolTipText(Messages.getString("EditorGUI.80")); //$NON-NLS-1$
 			copyMenuItem.addActionListener(Editor.getEditor().getEditorActions().new CopySelectedAction());
@@ -1138,7 +1119,6 @@ public class EditorGUI {
 		if (cutMenuItem == null) {
 			cutMenuItem = new JMenuItem();
 			cutMenuItem.setText(Messages.getString("EditorGUI.81")); //$NON-NLS-1$
-			//cutMenuItem.setMnemonic(KeyEvent.VK_T);
 			cutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,InputEvent.CTRL_MASK));
 			cutMenuItem.setToolTipText(Messages.getString("EditorGUI.82")); //$NON-NLS-1$
 			cutMenuItem.addActionListener(Editor.getEditor().getEditorActions().new CutSelectedAction());
@@ -1155,7 +1135,6 @@ public class EditorGUI {
 		if (undoMenuItem == null) {
 			undoMenuItem = new JMenuItem();
 			undoMenuItem.setText(Messages.getString("EditorGUI.83")); //$NON-NLS-1$
-			//undoMenuItem.setMnemonic(KeyEvent.VK_U);
 			undoMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,InputEvent.CTRL_MASK));
 			undoMenuItem.setToolTipText(Messages.getString("EditorGUI.84")); //$NON-NLS-1$
 			undoMenuItem.addActionListener(Editor.getEditor().getEditorActions().new UndoAction());
@@ -1172,7 +1151,6 @@ public class EditorGUI {
 		if (redoMenuItem == null) {
 			redoMenuItem = new JMenuItem();
 			redoMenuItem.setText(Messages.getString("EditorGUI.85")); //$NON-NLS-1$
-			//redoMenuItem.setMnemonic(KeyEvent.VK_R);
 			redoMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y,InputEvent.CTRL_MASK));
 			redoMenuItem.setToolTipText(Messages.getString("EditorGUI.86")); //$NON-NLS-1$
 			redoMenuItem.addActionListener(Editor.getEditor().getEditorActions().new RedoAction());
@@ -1189,7 +1167,6 @@ public class EditorGUI {
 		if (pasteMenuItem == null) {
 			pasteMenuItem = new JMenuItem();
 			pasteMenuItem.setText(Messages.getString("EditorGUI.87")); //$NON-NLS-1$
-			//pasteMenuItem.setMnemonic(KeyEvent.VK_P);
 			pasteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,InputEvent.CTRL_MASK));
 			pasteMenuItem.setToolTipText(Messages.getString("EditorGUI.88")); //$NON-NLS-1$
 			pasteMenuItem.addActionListener(Editor.getEditor().getEditorActions().new PasteSelectedAction());
@@ -1206,7 +1183,6 @@ public class EditorGUI {
 		if (weldMenuItem == null) {
 			weldMenuItem = new JMenuItem();
 			weldMenuItem.setText(Messages.getString("EditorGUI.89")); //$NON-NLS-1$
-			//weldMenuItem.setMnemonic(KeyEvent.VK_W);
 			weldMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,InputEvent.CTRL_MASK));
 			weldMenuItem.setToolTipText(Messages.getString("EditorGUI.90")); //$NON-NLS-1$
 			weldMenuItem.addActionListener(Editor.getEditor().getEditorActions().new WeldSelectedAction());
@@ -1223,7 +1199,6 @@ public class EditorGUI {
 		if (deleteMenuItem == null) {
 			deleteMenuItem = new JMenuItem();
 			deleteMenuItem.setText(Messages.getString("EditorGUI.91")); //$NON-NLS-1$
-			//deleteMenuItem.setMnemonic(KeyEvent.VK_D);
 			deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE,InputEvent.CTRL_MASK));
 			deleteMenuItem.setToolTipText(Messages.getString("EditorGUI.92")); //$NON-NLS-1$
 			deleteMenuItem.addActionListener(Editor.getEditor().getEditorActions().new DeleteSelectedAction());
