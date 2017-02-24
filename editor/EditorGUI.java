@@ -260,7 +260,7 @@ public class EditorGUI {
 	JToggleButton	constructButton;
 	JCheckBoxMenuItem	  isoRenderingButton;
 	JCheckBoxMenuItem	  centeredRenderingButton;
-	Vector<JComponent> selectionButtons = new Vector();		
+	Vector<JComponent> selectionButtons = new Vector<JComponent>();		
 
 	ImpulsionRenderer impulsionRenderer;
 	
@@ -1020,7 +1020,6 @@ public class EditorGUI {
 	 * 	
 	 * @return javax.swing.JMenuItem	
 	 */
-	@SuppressWarnings("unused")
 	private JMenuItem getNewWheelMenuItem() {
 		if (newWheelMenuItem == null) {
 			newWheelMenuItem = new JMenuItem();
