@@ -187,7 +187,7 @@ public class Wheel extends Model {
 	private static final long serialVersionUID = 2791557461451630455L;
 
 	static final int 	MAX_ANGLE = 360;
-	static final int 	ANGLE_INCREMENT = MAX_ANGLE / 20;
+	static final int 	ANGLE_INCREMENT = MAX_ANGLE / 10;
 	static final int 	WHEEL_WIDTH_RATIO = 3;
 	static final double WHEEL_AXIS_WIDTH_RATIO = 1.5;
 	

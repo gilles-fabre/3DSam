@@ -1036,7 +1036,7 @@ public class EditorGUI {
 			partsMenu.setText(Messages.getString("EditorGUI.71")); //$NON-NLS-1$
 			partsMenu.add(getNewBoxMenuItem());
 			partsMenu.add(getNewRigidBoxMenuItem());
-			//partsMenu.add(getNewWheelMenuItem());
+			partsMenu.add(getNewWheelMenuItem());
 			//partsMenu.add(getNewSphereMenuItem());
 			partsMenu.add(getNewConeMenuItem());
 			partsMenu.add(getNewTetrahedronMenuItem());
