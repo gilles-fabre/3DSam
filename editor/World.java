@@ -349,7 +349,7 @@ public class World implements Serializable {
 	    ObjectOutputStream objOut = new ObjectOutputStream(out);
 
 	    // saves the object
-		objOut.writeObject(Editor.getEditor().getWorld());
+		objOut.writeObject(this);
 	}
 
     public void save(String filename, boolean setName) throws IOException {
@@ -362,7 +362,7 @@ public class World implements Serializable {
 
 			if (setName)
 				// sets the name of the model to the file name
-				Editor.getEditor().getWorld().getModel().setName(filename);
+				getModel().setName(filename);
 			
 			// serialize
 			save(fOut);
